@@ -6,7 +6,7 @@ class About extends Component {
 
     this.state = {
       text: '',
-      editMode: this.props.editMode,
+      //editMode: this.props.editMode,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,19 +23,23 @@ class About extends Component {
     if (editMode) {
       return (
         <div>
-          <h2 className="cv-section">About</h2>
-          <textarea 
-            value={this.state.text}
-            onChange={this.handleChange}>
-          </textarea>
+          <div className="cv-section">About</div>
+          <div>
+            <textarea
+              value={this.state.text}
+              onChange={this.handleChange}>
+            </textarea>
+          </div>
         </div>
       );
     }
     else {
       return (
-        <div>
-          <h2 className="cv-section">About</h2>
-          <p>{this.state.text}</p>
+        <div className="cv-section">
+          <div className="cv-section-name">About</div>
+          <div>
+            <div>{this.state.text}</div>
+          </div>
         </div>
       )
     }
