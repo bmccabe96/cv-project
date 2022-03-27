@@ -138,6 +138,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   margin: 12px 0;
+  flex-wrap: wrap;
 }
 .education-graduation {
   text-align: right;
