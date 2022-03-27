@@ -105,12 +105,13 @@ textarea {
 .experience-row {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
+  margin: 12px 0;
 }
 .col-2 {
   text-align: end;
 }
-.remove-experience {
+.remove-experience,
+.remove-education {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: end;

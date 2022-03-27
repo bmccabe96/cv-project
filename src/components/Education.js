@@ -76,6 +76,18 @@ addEducation = () => {
   });
 }
 
+removeEducation = (e) => {
+  const id = e.target.dataset.id;
+  const newList = this.state.educationList.filter(item => {
+    if(item.id !== id) {
+      return item;
+    }
+  })
+  this.setState({
+    educationList: newList,
+  })
+}
+
   render() {
     const { editMode } = this.props;
     const { educationList } = this.state;
@@ -87,35 +99,40 @@ addEducation = () => {
           <div className="education-list">
             {educationList.map((education, index) => {
               return (
-                <div className="education-item" key={education.id}>
-                  <input
-                    type="text"
-                    id="institution-input"
-                    data-id={education.id}
-                    onChange={this.handleInstitutionChange}
-                    value={education.institution}
-                  />
-                  <input
-                    type="text"
-                    id="degree-input"
-                    data-id={education.id}
-                    onChange={this.handleDegreeChange}
-                    value={education.degree}
-                  />
-                  <input
-                    type="text"
-                    id="subject-input"
-                    data-id={education.id}
-                    onChange={this.handleSubjectChange}
-                    value={education.subject}
-                  />
-                  <input
-                    type="date"
-                    id="graduation-input"
-                    data-id={education.id}
-                    onChange={this.handleGraduationChange}
-                    value={education.graduation}
-                  />
+                <div>
+                  <div className="education-item" key={education.id}>
+                    <input
+                      type="text"
+                      id="institution-input"
+                      data-id={education.id}
+                      onChange={this.handleInstitutionChange}
+                      value={education.institution}
+                    />
+                    <input
+                      type="text"
+                      id="degree-input"
+                      data-id={education.id}
+                      onChange={this.handleDegreeChange}
+                      value={education.degree}
+                    />
+                    <input
+                      type="text"
+                      id="subject-input"
+                      data-id={education.id}
+                      onChange={this.handleSubjectChange}
+                      value={education.subject}
+                    />
+                    <input
+                      type="date"
+                      id="graduation-input"
+                      data-id={education.id}
+                      onChange={this.handleGraduationChange}
+                      value={education.graduation}
+                    />
+                  </div>
+                  <div className="remove-education">
+                    <button className="remove-education-btn" data-id={education.id} onClick={this.removeEducation}>Remove Education</button>
+                  </div>
                 </div>
               )
             })}
@@ -149,3 +166,4 @@ addEducation = () => {
 }
 
 export default Education;
+
