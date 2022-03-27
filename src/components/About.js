@@ -23,7 +23,7 @@ class About extends Component {
     if (editMode) {
       return (
         <div>
-          <div className="cv-section">About</div>
+          <div className="cv-section-name">About</div>
           <div>
             <textarea
               value={this.state.text}

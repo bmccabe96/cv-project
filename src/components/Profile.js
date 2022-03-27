@@ -11,10 +11,10 @@ class Profile extends Component {
       phone: 'Enter phone',
     }
   
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleCityChange = this.handleCityChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    // this.handleNameChange = this.handleNameChange.bind(this);
+    // this.handleCityChange = this.handleCityChange.bind(this);
+    // this.handleEmailChange = this.handleEmailChange.bind(this);
+    // this.handlePhoneChange = this.handlePhoneChange.bind(this);
   }
 
   handleNameChange = (e) => {

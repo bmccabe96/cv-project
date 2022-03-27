@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-import About from "./components/About";
 import Profile from "./components/Profile";
+import About from "./components/About";
+import ExperienceList from "./components/ExperienceList";
 import "./styles/app.css"
 
 
@@ -37,6 +38,7 @@ class App extends Component {
         <div className="cv-content">
           <Profile editMode={this.state.editMode} />
           <About editMode={this.state.editMode} />
+          <ExperienceList editMode={this.state.editMode} />
         </div>
       </div>
     )
