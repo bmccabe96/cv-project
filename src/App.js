@@ -5,6 +5,7 @@ import About from "./components/About";
 import ExperienceList from "./components/ExperienceList";
 import Education from "./components/Education";
 import Footer from "./components/Footer";
+import ReactToPrint from "react-to-print";
 import "./styles/app.css"
 
 
@@ -32,6 +33,10 @@ class App extends Component {
     }
   }
 
+  getPageMargins = () => {
+    return `@page { margin: 5vh 5vw !important; }`;
+  };
+
   render() {
     return (
       <div className="all-content">
@@ -39,14 +44,22 @@ class App extends Component {
           <Header />
           <div className="edit-btn-container">
             <button className="edit-btn" onClick={this.changeMode}>{!this.state.editMode ? "Edit" : "Preview"}</button>
-            <button className={(this.state.editMode ? "hidden" : "visible") + " print-btn"}>Print</button>
+            <ReactToPrint
+              trigger={() => {
+                return <button className={(this.state.editMode ? "hidden" : "visible") + " print-btn"}>Print</button>
+              }}
+              content={() => this.componentRef}
+            />
           </div>
         </div>
         <div className="cv-content">
-          <Profile editMode={this.state.editMode} />
-          <About editMode={this.state.editMode} />
-          <ExperienceList editMode={this.state.editMode} />
-          <Education editMode={this.state.editMode} />
+          <div className="to-print" ref={el => (this.componentRef = el)}>
+            <style>{this.getPageMargins()}</style>
+            <Profile editMode={this.state.editMode} />
+            <About editMode={this.state.editMode} />
+            <ExperienceList editMode={this.state.editMode} />
+            <Education editMode={this.state.editMode} />
+          </div>
         </div>
         <Footer />
       </div>
