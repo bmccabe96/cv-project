@@ -4,6 +4,7 @@ import Profile from "./components/Profile";
 import About from "./components/About";
 import ExperienceList from "./components/ExperienceList";
 import Education from "./components/Education";
+import Footer from "./components/Footer";
 import "./styles/app.css"
 
 
@@ -34,9 +35,12 @@ class App extends Component {
   render() {
     return (
       <div className="all-content">
-        <Header />
-        <div className="edit-btn-container">
-          <button className="edit-btn" onClick={this.changeMode}>{!this.state.editMode ? "Edit" : "Preview"}</button>
+        <div>
+          <Header />
+          <div className="edit-btn-container">
+            <button className="edit-btn" onClick={this.changeMode}>{!this.state.editMode ? "Edit" : "Preview"}</button>
+            <button className={(this.state.editMode ? "hidden" : "visible") + " print-btn"}>Print</button>
+          </div>
         </div>
         <div className="cv-content">
           <Profile editMode={this.state.editMode} />
@@ -44,6 +48,7 @@ class App extends Component {
           <ExperienceList editMode={this.state.editMode} />
           <Education editMode={this.state.editMode} />
         </div>
+        <Footer />
       </div>
     )
   }
