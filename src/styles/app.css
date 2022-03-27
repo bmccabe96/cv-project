@@ -1,13 +1,18 @@
 html, body {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.title, .edit-btn-container {
+  text-align: center;
+  margin-left: auto;
+  margin-bottom: 12px;
 }
 
 .cv-content {
   width: 50vw;
   margin-left: 25vw;
+  margin-bottom: 40px;
   padding: 10px 0;
   display: grid;
   grid-template-columns: 1fr 45vw 1fr;
@@ -27,7 +32,7 @@ html, body {
 .cv-section-name {
   text-decoration: underline;
   font-size: 22px;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
 }
 
 .cv-section-name + div {
@@ -57,9 +62,11 @@ input {
   display: flex;
   padding: 5px;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .cv-profile-details div {
   text-align: center;
+  width: auto;
 }
 
 textarea {
@@ -90,7 +97,8 @@ textarea {
   grid-template-columns: 1fr;
   justify-items: end;
 }
-.add-experience {
+.add-experience,
+.add-education {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
@@ -100,4 +108,18 @@ textarea {
 }
 .experience-item > div:first-child > div:first-child{
   font-weight: bold;
+}
+.education-list {
+  font-size: 14px;
+}
+.education-list {
+  font-size: 14px;
+}
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+.education-graduation {
+  text-align: right;
 }

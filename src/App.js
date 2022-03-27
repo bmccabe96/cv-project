@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Profile from "./components/Profile";
 import About from "./components/About";
 import ExperienceList from "./components/ExperienceList";
+import Education from "./components/Education";
 import "./styles/app.css"
 
 
@@ -32,13 +33,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="all-content">
         <Header />
-        <button onClick={this.changeMode}>{!this.state.editMode ? "Edit" : "Preview"}</button>
+        <div className="edit-btn-container">
+          <button className="edit-btn" onClick={this.changeMode}>{!this.state.editMode ? "Edit" : "Preview"}</button>
+        </div>
         <div className="cv-content">
           <Profile editMode={this.state.editMode} />
           <About editMode={this.state.editMode} />
           <ExperienceList editMode={this.state.editMode} />
+          <Education editMode={this.state.editMode} />
         </div>
       </div>
     )
