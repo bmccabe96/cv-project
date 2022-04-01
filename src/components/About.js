@@ -1,33 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class About extends Component {
-  constructor(props){
-    super(props);
+const About = (props) => {
+  const [text, setText] = useState('');
 
-    this.state = {
-      text: '',
-      //editMode: this.props.editMode,
-    }
-
-    this.handleChange = this.handleChange.bind(this);
+  const handleChange = (e) => {
+    setText(e.target.value);
   }
 
-  handleChange = (e) => {
-    this.setState({
-      text: e.target.value,
-    })
-  }
-
-  render() {
-    const { editMode } = this.props;
+  const { editMode } = props;
     if (editMode) {
       return (
         <div>
           <div className="cv-section-name">About</div>
           <div>
             <textarea
-              value={this.state.text}
-              onChange={this.handleChange}>
+              value={text}
+              onChange={handleChange}>
             </textarea>
           </div>
         </div>
@@ -38,12 +26,13 @@ class About extends Component {
         <div className="cv-section">
           <div className="cv-section-name">About</div>
           <div>
-            <div>{this.state.text}</div>
+            <div>{text}</div>
           </div>
         </div>
       )
     }
-  }
 }
+
+
 
 export default About;
